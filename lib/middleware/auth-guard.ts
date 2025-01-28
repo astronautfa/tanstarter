@@ -1,5 +1,5 @@
 import { createMiddleware } from "@tanstack/start";
-import { setResponseStatus } from "vinxi/http";
+import { setResponseStatus } from "@tanstack/start/server";
 import { getAuthSession } from "~/lib/server/auth";
 
 /**

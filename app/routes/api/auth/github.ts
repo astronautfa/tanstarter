@@ -1,6 +1,6 @@
 import { createAPIFileRoute } from "@tanstack/start/api";
+import { setCookie, setHeader } from "@tanstack/start/server";
 import { generateState } from "arctic";
-import { setCookie, setHeader } from "vinxi/http";
 
 import { github } from "~/lib/server/auth";
 

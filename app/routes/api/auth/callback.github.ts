@@ -1,7 +1,7 @@
 import { createAPIFileRoute } from "@tanstack/start/api";
+import { parseCookies } from "@tanstack/start/server";
 import { OAuth2RequestError } from "arctic";
 import { and, eq } from "drizzle-orm";
-import { parseCookies } from "vinxi/http";
 import {
   createSession,
   generateSessionToken,

@@ -1,7 +1,7 @@
 import { createAPIFileRoute } from "@tanstack/start/api";
+import { parseCookies } from "@tanstack/start/server";
 import { OAuth2RequestError } from "arctic";
 import { and, eq } from "drizzle-orm";
-import { parseCookies } from "vinxi/http";
 import {
   createSession,
   discord,
@@ -28,8 +28,9 @@ export const APIRoute = createAPIFileRoute("/api/auth/callback/discord")({
 
     const cookies = parseCookies();
     const storedState = cookies.discord_oauth_state;
+    const storedCodeVerifier = cookies.discord_code_verifier;
 
-    if (!code || !state || !storedState || state !== storedState) {
+    if (!code || !state || !storedState || !storedCodeVerifier || state !== storedState) {
       return new Response(null, {
         status: 400,
       });
@@ -38,7 +39,7 @@ export const APIRoute = createAPIFileRoute("/api/auth/callback/discord")({
     const PROVIDER_ID = "discord";
 
     try {
-      const tokens = await discord.validateAuthorizationCode(code);
+      const tokens = await discord.validateAuthorizationCode(code, storedCodeVerifier);
       const discordUserResponse = await fetch("https://discord.com/api/v10/users/@me", {
         headers: {
           Authorization: `Bearer ${tokens.accessToken()}`,

@@ -1,8 +1,8 @@
 import { sha256 } from "@oslojs/crypto/sha2";
 import { encodeBase32LowerCaseNoPadding, encodeHexLowerCase } from "@oslojs/encoding";
+import { deleteCookie, getCookie, setCookie } from "@tanstack/start/server";
 import { Discord, GitHub, Google } from "arctic";
 import { eq } from "drizzle-orm";
-import { deleteCookie, getCookie, setCookie } from "vinxi/http";
 
 import { db } from "~/lib/server/db";
 import {
