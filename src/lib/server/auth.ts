@@ -34,7 +34,7 @@ export const auth = betterAuth({
   },
 
   // https://www.better-auth.com/docs/authentication/email-password
-  // emailAndPassword: {
-  //   enabled: true,
-  // },
+  emailAndPassword: {
+    enabled: true,
+  },
 });

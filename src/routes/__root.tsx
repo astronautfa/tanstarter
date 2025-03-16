@@ -14,6 +14,7 @@ import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 
 import { auth } from "~/lib/server/auth";
 import appCss from "~/lib/styles/app.css?url";
+import { Toaster } from "sonner";
 
 const getUser = createServerFn({ method: "GET" }).handler(async () => {
   const { headers } = getWebRequest()!;
@@ -78,6 +79,8 @@ function RootDocument({ children }: { readonly children: React.ReactNode }) {
 
         <ReactQueryDevtools buttonPosition="bottom-left" />
         <TanStackRouterDevtools position="bottom-right" />
+
+        <Toaster />
 
         <Scripts />
       </body>

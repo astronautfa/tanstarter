@@ -60,15 +60,6 @@ function Home() {
       )}
 
       <ThemeToggle />
-
-      <a
-        className="text-muted-foreground underline hover:text-foreground"
-        href="https://github.com/dotnize/tanstarter"
-        target="_blank"
-        rel="noreferrer noopener"
-      >
-        dotnize/tanstarter
-      </a>
     </div>
   );
 }
